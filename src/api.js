@@ -32,6 +32,11 @@ router.get('/posts', async (req, res, next) => {
   }
 });
 
+router.get('/errorapi', async (req, res, next) => {
+    const posts = "hi"
+    return res.status(200).json(posts);
+});
+
 router.get('/posts/:id', async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.id);
