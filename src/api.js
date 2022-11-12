@@ -27,9 +27,9 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/addtest', (req, res, next) => {
+router.post('/addtest', (req, res, next) => {
   try {
-    const data = request.body;
+    const data = req.body;
   const timestamp = Date.now();
   data.timestamp = timestamp;
   database.insert(data);
