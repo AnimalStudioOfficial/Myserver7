@@ -27,7 +27,8 @@ router.get('/', (req, res, next) => {
   }
 });
 
-app.get('/geterrors', (req, res, next) => {
+router.get('/geterrors', (req, res, next) => {
+     try {
   database.find({}, (err, data) => {
     if (err) {
       res.end();
@@ -35,6 +36,9 @@ app.get('/geterrors', (req, res, next) => {
     }
     res.send(data);
   });
+  } catch (err) {
+    next(err);
+  }
 });
 
 //router.get('/posts', async (req, res, next) => {
