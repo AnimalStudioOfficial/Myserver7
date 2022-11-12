@@ -30,10 +30,10 @@ router.get('/', (req, res, next) => {
 router.get('/geterrors', (req, res, next) => {
   database.find({}, (err, data) => {
     if (err) {
-      response.end();
+      res.end();
       return;
     }
-    response.send(data);
+    res.send(data);
   });
 });
 
