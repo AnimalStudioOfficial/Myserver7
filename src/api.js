@@ -34,7 +34,8 @@ router.get('/geterrors', (req, res, next) => {
       res.end();
       return;
     }
-    res.send(data);
+    res.json(data)
+    //res.send(data);
   });
   } catch (err) {
     next(err);
