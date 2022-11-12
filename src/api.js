@@ -1,6 +1,6 @@
 const express = require('express');
 const serverless = require('serverless-http');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const Post = require('./postSchema');
@@ -92,14 +92,14 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
-mongoose.set('useCreateIndex', true).connect(
-  process.env.CONNECTION_STRING,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => console.log('Connected to Mongo Database')
-);
+// // 
+//mongoose.set('useCreateIndex', true).connect(
+//  process.env.CONNECTION_STRING,
+///  {
+//    useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   },
+//   () => console.log('Connected to Mongo Database')
+//);
 
 module.exports.handler = serverless(app);
