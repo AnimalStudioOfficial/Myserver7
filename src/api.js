@@ -1,6 +1,7 @@
 const express = require('express');
 const serverless = require('serverless-http');
 //const mongoose = require('mongoose');
+const Datastore = require("nedb");
 const cors = require('cors');
 const path = require('path');
 const Post = require('./postSchema');
@@ -13,6 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+const database = new Datastore("database.db");
+database.loadDatabase();
+
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -21,6 +25,16 @@ router.get('/', (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+router.get("/geterrors", (request, response) => {
+  database.find({}, (err, data) => {
+    if (err) {
+      response.end();
+      return;
+    }
+    response.send(data);
+  });
 });
 
 //router.get('/posts', async (req, res, next) => {
