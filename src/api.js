@@ -27,6 +27,17 @@ router.get('/', (req, res, next) => {
   }
 });
 
+router.get('/addtest', (req, res, next) => {
+  try {
+    const data = request.body;
+  const timestamp = Date.now();
+  data.timestamp = timestamp;
+  database.insert(data);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/geterrors', (req, res, next) => {
      try {
   database.find({}, (err, data) => {
