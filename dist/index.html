@@ -18,6 +18,38 @@
 <body class="text-black-50">
   <div class="container">
     <h1 class="text-info">Blog rest api</h1>
+    <button id="submit">submit</button>
+      <script>
+      let lat, lon;
+      const button = document.getElementById("submit");
+      //const button2 = document.getElementById("wipe");
+      button.addEventListener("click", async (event) => {
+       // const mood = document.getElementById("mood").value;
+        const data = { "hi boi };
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+        const response = await fetch("/.netlify/functions/api/addtest", options);
+        const json = await response.json();
+        console.log(json);
+      });
+
+     // if ("geolocation" in navigator) {
+     //   console.log("geolocation available");
+      //  navigator.geolocation.getCurrentPosition(async (position) => {
+      //    lat = position.coords.latitude;
+      //    lon = position.coords.longitude;
+     //     document.getElementById("latitude").textContent = lat;
+     //     document.getElementById("longitude").textContent = lon;
+     //   });
+     // } else {
+    //    console.log("geolocation not available");
+    //  }
+    </script>
     <h3>Endpoints</h3>
     <ul class="list-unstyled">
       <li><strong>GET all posts: </strong>https://heuristic-aryabhata-f620d5.netlify.app/.netlify/functions/api/posts
