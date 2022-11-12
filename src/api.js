@@ -27,7 +27,7 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/geterrors', (req, res, next) => {
+app.get('/geterrors', (req, res, next) => {
   database.find({}, (err, data) => {
     if (err) {
       res.end();
