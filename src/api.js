@@ -14,7 +14,7 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-const database = new Datastore("database.db");
+const database = new Datastore("./database.db");
 database.loadDatabase();
 
 const router = express.Router();
