@@ -45,7 +45,8 @@ router.get('/geterrors', (req, res, next) => {
       res.end();
       return;
     }
-    return res.status(200).res.json(data)
+    console.log(JSON.stringify(data))
+    return res.status(200).res.json(JSON.stringify(data))
     //res.send(data);
   });
   } catch (err) {
